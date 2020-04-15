@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline, ThemeProvider } from '@material-ui/core'
+import 'typeface-roboto';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Auth from './Auth/Auth';
+import Home from './Home/Home';
+import theme from './Theme';
+import { UserContext } from './AppContext';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [user, setUser] = React.useState({});
+    const userValue = { user, setUser };
+
+    return (
+        <UserContext.Provider value={userValue}>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <BrowserRouter>
+                    <Switch>
+                        <Route path="/auth">
+                            <Auth />
+                        </Route>
+                        <Route path="/">
+                            <Home />
+                        </Route>
+                    </Switch>
+                </BrowserRouter>
+            </ThemeProvider>
+        </UserContext.Provider>
+    );
 }
 
 export default App;
