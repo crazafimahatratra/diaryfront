@@ -127,7 +127,7 @@ export default function Auth() {
         setErrors(lErrors);
         if (lErrors.password.length > 0 || lErrors.login.length > 0)
             return;
-        axios.post(`${Env.ApiEndpoint}/auth`, { email: values.login, password: values.password }).then((response) => {
+        axios.post(`${Env.ApiEndpoint}/auth`, { login: values.login, password: values.password }).then((response) => {
             if (response.data.accessToken) {
                 session.setAccessToken(response.data.accessToken);
                 history.push("/");
