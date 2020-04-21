@@ -154,7 +154,7 @@ export default function Auth() {
                         <CTextField error={Boolean(errors.login)} helperText={errors.login} value={values.login} onChange={handleChange("login")} label="Email" variant="outlined" fullWidth InputProps={{ startAdornment: <AccountCircle /> }} />
                         <CTextField error={Boolean(errors.password)} helperText={errors.password} value={values.password} onChange={handleChange("password")} label="Password" variant="outlined" fullWidth type="password" InputProps={{ startAdornment: <Lock /> }} />
                         <CCheckbox label="Se souvenir de moi" fullWidth />
-                        <CButton disabled={values.login.length === 0 || values.password.length === 0} type="submit" fullWidth variant="contained" color="primary">ENTRER</CButton>
+                        <CButton disabled={values.login.length === 0 || values.password.length === 0} type="submit" fullWidth variant="contained" color="primary">Connexion</CButton>
                     </form>
                 </Container>
             </div>
